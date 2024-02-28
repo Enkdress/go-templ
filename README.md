@@ -6,6 +6,12 @@
 
 Just starting learning go and found this beutiful combination of technologies.
 
+### Tech Stack
+* [Golang](https://go.dev)
+* [Htmx](https://htmx.org)
+* [Templ](https://templ.guide)
+* [Echo framework](https://echo.labstack.com)
+
 ## Setup
 * Install [go](https://go.dev/doc/install)
 * Install [templ](https://templ.guide/quick-start/installation)
