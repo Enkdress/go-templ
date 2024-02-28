@@ -4,7 +4,7 @@
     </h1>
 </div>
 
-Just starting learning go and found this beutiful combination of technologies.
+Just starting learning go and found this beautiful combination of technologies.
 
 ### Tech Stack
 * [Golang](https://go.dev)
