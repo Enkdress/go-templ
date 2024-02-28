@@ -3,9 +3,10 @@ package components
 import (
 	"fmt"
 	"strconv"
+	"github.com/enkdress/go-templ/models"
 )
 
-templ EncoriansList(encorians []Encorian) {
+templ EncoriansList(encorians []models.Encorian) {
 	<h2>Encorians</h2>
 	<ul>
 		for _, encorian := range encorians {

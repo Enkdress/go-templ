@@ -12,10 +12,11 @@ import "bytes"
 
 import (
 	"fmt"
+	"github.com/enkdress/go-templ/models"
 	"strconv"
 )
 
-func EncoriansList(encorians []Encorian) templ.Component {
+func EncoriansList(encorians []models.Encorian) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -40,7 +41,7 @@ func EncoriansList(encorians []Encorian) templ.Component {
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(encorian.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/encorians_list.templ`, Line: 13, Col: 32}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/encorians_list.templ`, Line: 14, Col: 32}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -53,7 +54,7 @@ func EncoriansList(encorians []Encorian) templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(strconv.Itoa(int(encorian.PizzaAmount)))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/encorians_list.templ`, Line: 15, Col: 60}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/encorians_list.templ`, Line: 16, Col: 60}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
