@@ -15,7 +15,7 @@ Just starting learning go and found this beutiful combination of technologies.
 ## Setup
 * Install [go](https://go.dev/doc/install)
 * Install [templ](https://templ.guide/quick-start/installation)
-* Put the `$HOME/go/bin` in your system's path
+* Add `$HOME/go/bin` into your system's path
 
 ## Run
 * cd into the `go-templ` folder
