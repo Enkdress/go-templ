@@ -7,10 +7,16 @@ import (
 )
 
 func main() {
+
+	// Create an instance for a new server
 	e := echo.New()
+
+	// Get the Index page
 	indexPage := views.Page()
+
 	encorianHandler := handlers.EncorianHandler{}
 
+	// Routes declarations
 	e.GET("/", func(c echo.Context) error {
 		return indexPage.Render(c.Request().Context(), c.Response())
 	})
