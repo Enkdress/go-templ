@@ -1,23 +1,22 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
-
-	"github.com/a-h/templ"
 	"github.com/enkdress/go-templ/handlers"
 	"github.com/enkdress/go-templ/views"
+	"github.com/labstack/echo/v4"
 )
 
 func main() {
-	component := views.Page()
-	mux := http.NewServeMux()
+	e := echo.New()
+	indexPage := views.Page()
+	encorianHandler := handlers.EncorianHandler{}
 
-	mux.Handle("/", templ.Handler(component))
-	mux.HandleFunc("/pizza", handlers.PizzaHandler)
-	mux.HandleFunc("/pizza/{id}", handlers.PizzaHandler)
-	mux.HandleFunc("/encorians/avg", handlers.EncoriansAverage)
+	e.GET("/", func(c echo.Context) error {
+		return indexPage.Render(c.Request().Context(), c.Response())
+	})
+	e.GET("/encorian/avg", encorianHandler.HandleFindAvg)
+	e.POST("/encorian", encorianHandler.HandleAddEncorian)
+	e.DELETE("/encorian/:id", encorianHandler.HandleDeleteEncorian)
 
-	fmt.Println("Listening on :3000")
-	http.ListenAndServe(":3000", mux)
+	e.Logger.Fatal(e.Start(":3000"))
 }

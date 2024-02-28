@@ -23,7 +23,7 @@ func Page() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Encorians</title><script src=\"https://unpkg.com/htmx.org@1.9.10\"></script><script src=\"https://cdn.tailwindcss.com\"></script></head><body class=\"mx-14 my-5\"><div id=\"encoriansList\"></div><form hx-post=\"/pizza\" hx-target=\"#encorianslist\" hx-swap=\"innerHTML\"><input placeholder=\"Name\" type=\"text\" name=\"name\"> <input placeholder=\"Amount\" type=\"number\" name=\"pizzaAmount\"> <button class=\"bg-blue-400 p-2 rounded-md\">Add Pizza</button></form><div hx-get=\"/encorians/avg\" hx-trigger=\"newEncorian from:body\" hx-swap=\"innerHTML\"></div></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Encorians</title><script src=\"https://unpkg.com/htmx.org@1.9.10\"></script><script src=\"https://cdn.tailwindcss.com\"></script></head><body class=\"mx-14 my-5\"><div id=\"encoriansList\"></div><form hx-post=\"/encorian\" hx-target=\"#encorianslist\" hx-swap=\"innerHTML\"><input placeholder=\"Name\" type=\"text\" name=\"name\"> <input placeholder=\"Amount\" type=\"number\" name=\"pizzaAmount\"> <button class=\"bg-blue-400 p-2 rounded-md\">Add Pizza</button></form><div hx-get=\"/encorian/avg\" hx-trigger=\"newEncorian from:body\" hx-swap=\"innerHTML\"></div></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -2,6 +2,6 @@ package models
 
 type Encorian struct {
 	Id          string
-	Name        string
-	PizzaAmount int8
+	Name        string `json:"name" form:"name"`
+	PizzaAmount int8   `json:"pizzaAmount" form:"pizzaAmount"`
 }
