@@ -1,0 +1,22 @@
+package components
+
+import (
+	"fmt"
+	"strconv"
+)
+
+templ EncoriansList(encorians []Encorian) {
+	<h2>Encorians</h2>
+	<ul>
+		for _, encorian := range encorians {
+			<li class="flex items-center gap-2">
+				<p>
+					<span>Name: { encorian.Name }</span>
+					|
+					<span>Pizzas: { strconv.Itoa(int(encorian.PizzaAmount)) }</span>
+				</p>
+				<button class="bg-red-400 rounded-md p-2" hx-target="closest li" hx-delete={ fmt.Sprintf("/pizza/%s", encorian.Id) }>Delete</button>
+			</li>
+		}
+	</ul>
+}
