@@ -15,11 +15,12 @@ Just starting learning go and found this beautiful combination of technologies.
 ## Setup
 * Install [go](https://go.dev/doc/install)
 * Install [templ](https://templ.guide/quick-start/installation)
+* Install Air with go install github.com/cosmtrek/air@latest
 * Add `$HOME/go/bin` into your system's path
 
 ## Run
 * cd into the `go-templ` folder
-* Run the command `make`
+* Run the command `air`
 * Open your browser on `localhost:3000`
 * See the magic
 
