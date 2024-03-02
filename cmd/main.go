@@ -20,7 +20,7 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return indexPage.Render(c.Request().Context(), c.Response())
 	})
-	e.GET("/encorian/avg", encorianHandler.HandleFindAvg)
+	e.GET("/encorian", encorianHandler.HandleGetEncorians)
 	e.POST("/encorian", encorianHandler.HandleAddEncorian)
 	e.DELETE("/encorian/:id", encorianHandler.HandleDeleteEncorian)
 

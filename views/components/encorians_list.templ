@@ -6,18 +6,26 @@ import (
 	"github.com/enkdress/go-templ/models"
 )
 
-templ EncoriansList(encorians []models.Encorian) {
-	<h2>Encorians</h2>
-	<ul>
-		for _, encorian := range encorians {
-			<li class="flex items-center gap-2">
-				<p>
-					<span>Name: { encorian.Name }</span>
-					|
-					<span>Pizzas: { strconv.Itoa(int(encorian.PizzaAmount)) }</span>
-				</p>
-				<button class="bg-red-400 rounded-md p-2" hx-target="closest li" hx-delete={ fmt.Sprintf("/encorian/%s", encorian.Id) }>Delete</button>
-			</li>
-		}
-	</ul>
+templ EncoriansList(encorians []models.Encorian, avg int) {
+	for _, encorian := range encorians {
+		<tr class="">
+			<td class="text-center">
+				{ encorian.Name }
+			</td>
+			<td class="text-center">
+				{ strconv.Itoa(int(encorian.PizzaAmount)) }
+			</td>
+			<td class="text-center">
+				<button class="bg-red-400 rounded-md p-2" hx-target="closest tr" hx-delete={ fmt.Sprintf("/encorian/%s", encorian.Id) }>Delete</button>
+			</td>
+		</tr>
+	}
+	<tr class="mt-5">
+		<td class="text-center font-bold">
+			Pizza AVG:
+		</td>
+		<td class="text-center font-bold">
+			{ strconv.Itoa(avg) }
+		</td>
+	</tr>
 }

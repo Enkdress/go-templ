@@ -11,6 +11,7 @@ import (
 
 type EncorianHandler struct {
 	encorians []models.Encorian
+	avg       int32
 }
 
 func (p *EncorianHandler) HandleAddEncorian(c echo.Context) error {
@@ -23,10 +24,15 @@ func (p *EncorianHandler) HandleAddEncorian(c echo.Context) error {
 
 	encorian.Id = uuid.NewString()
 	p.encorians = append(p.encorians, encorian)
+	p.findAvg()
 
 	c.Response().Header().Add("HX-Trigger", "newEncorian")
 
-	return components.EncoriansList(p.encorians).Render(c.Request().Context(), c.Response())
+	return components.EncoriansList(p.encorians, int(p.avg)).Render(c.Request().Context(), c.Response())
+}
+
+func (p *EncorianHandler) HandleGetEncorians(c echo.Context) error {
+	return components.EncoriansList(p.encorians, int(p.avg)).Render(c.Request().Context(), c.Response())
 }
 
 func (p *EncorianHandler) HandleDeleteEncorian(c echo.Context) error {
@@ -41,10 +47,10 @@ func (p *EncorianHandler) HandleDeleteEncorian(c echo.Context) error {
 
 	p.encorians = newEncorians
 
-	return c.String(http.StatusOK, "All gud")
+	return c.String(http.StatusNoContent, "")
 }
 
-func (p *EncorianHandler) HandleFindAvg(c echo.Context) error {
+func (p *EncorianHandler) findAvg() {
 	var pizzaSum int
 
 	for _, encorian := range p.encorians {
@@ -52,6 +58,5 @@ func (p *EncorianHandler) HandleFindAvg(c echo.Context) error {
 	}
 
 	avg := pizzaSum / len(p.encorians)
-
-	return components.EncoriansAvg(avg).Render(c.Request().Context(), c.Response())
+	p.avg = int32(avg)
 }

@@ -9,14 +9,52 @@ templ Page() {
 			<script src="https://unpkg.com/htmx.org@1.9.10"></script>
 			<script src="https://cdn.tailwindcss.com"></script>
 		</head>
-		<body class="mx-14 my-5">
-			<div id="encoriansList"></div>
-			<form hx-post="/encorian" hx-target="#encorianslist" hx-swap="innerHTML">
-				<input placeholder="Name" type="text" name="name"/>
-				<input placeholder="Amount" type="number" name="pizzaAmount"/>
-				<button class="bg-blue-400 p-2 rounded-md">Add Pizza</button>
+		<body class="h-full w-full">
+			<form
+				class="mx-auto w-1/2 mt-10 flex flex-col gap-2 justify-between"
+				hx-post="/encorian"
+				hx-target="#encorianslist"
+				hx-swap="innerHTML"
+			>
+				<section class="flex gap-2">
+					<input
+						class="grow px-2 py-1 rounded-md border border-gray-200 outline-none focus:border-blue-200"
+						placeholder="Name"
+						type="text"
+						name="name"
+					/>
+					<input
+						class="grow px-2 py-1 rounded-md border border-gray-200 outline-none focus:border-blue-200"
+						placeholder="Amount"
+						type="number"
+						name="pizzaAmount"
+					/>
+				</section>
+				<button class="bg-blue-400 p-2 rounded-md w-full">Add Pizza</button>
 			</form>
-			<div hx-get="/encorian/avg" hx-trigger="newEncorian from:body" hx-swap="innerHTML"></div>
+			<div
+				class="mt-5 mx-auto w-1/2"
+				hx-get="/encorian"
+				hx-target="#encoriansList"
+				hx-swap="innerHTML"
+				hx-trigger="load"
+			>
+				<h2 class="font-bold leading-normal text-[8rem] text-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text font-bold text-3xl">Encorians</h2>
+				<table class="w-full">
+					<thead>
+						<tr class="bg-gray-200">
+							<th class="border-r border-gray-300 ">
+								Name
+							</th>
+							<th class="border-r border-gray-300 ">
+								Pizzas
+							</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody id="encoriansList"></tbody>
+				</table>
+			</div>
 		</body>
 	</html>
 }
